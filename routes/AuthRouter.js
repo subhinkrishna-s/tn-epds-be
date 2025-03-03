@@ -28,7 +28,8 @@ AuthRouter.post('/login', async(req, res)=>{
             fullname: user.fullname,  
             email: user.email,  
             contact: user.contact,  
-            role: user.role
+            role: user.role,
+            shopId: user.shopId
         }
 
         req.session.save((err)=>{
