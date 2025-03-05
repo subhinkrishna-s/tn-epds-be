@@ -6,10 +6,9 @@ const shopSchema = new mongoose.Schema({
     address: { type: String, trim: true },
     items: [
         { 
-            product: { type: String, enum: ["wheat", "sugar", "oil"], trim: true },
+            product: { type: String, enum: ["rice", "wheat", "kerosene"], trim: true, lowercase: true },
             quantity: { type: Number, default: 0 },
-            price: { type: Number, default: 0 },
-            acknowledgement: {type: Boolean, default: false}
+            price: { type: Number, default: 0 }
         }
     ]
 },{

@@ -5,6 +5,8 @@ const Session = require('express-session');
 const AuthRouter = require('./routes/AuthRouter');
 const ShopRouter = require('./routes/ShopRouter');
 const LogisticsRouter = require('./routes/LogisticsRouter');
+const UserRouter = require('./routes/UserRouter');
+const PurchaseRouter = require('./routes/PurchaseRouter');
 const MongoDbSession = require('connect-mongodb-session')(Session);
 require('dotenv').config();
 
@@ -18,9 +20,6 @@ app.use(cors({
 app.use(Express.json());
 app.use(Express.urlencoded({ extended: true }));
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-})
 
 Mongoose.connect(process.env.MongoDBURI)
 .then(()=>{
@@ -45,3 +44,10 @@ app.use(Session({
 app.use(AuthRouter)
 app.use(ShopRouter)
 app.use(LogisticsRouter)
+app.use(UserRouter)
+app.use(PurchaseRouter)
+
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+})
