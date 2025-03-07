@@ -167,6 +167,7 @@ ShopRouter.post('/update-product/:id', isAuth, async (req, res)=>{
     try{
         const shopId = req.params.id
         const {items} = req.body
+        console.log("items:",items)
 
         if(!shopId){
             return res.send({success: false, message: "Failed to fetch shop ID"})
@@ -216,7 +217,7 @@ ShopRouter.post('/update-product/:id', isAuth, async (req, res)=>{
             }
         }
 
-        return res.send({success: true, message: "Product has been careted!"})
+        return res.send({success: true, message: "Product has been created!"})
     }
     catch(err){
         console.log("Error in fetching Shop:",err)
